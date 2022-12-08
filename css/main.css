@@ -80,6 +80,9 @@ a {
         visibility: hidden;
         display: none;
     }
+    .container section {
+        background-color: var(--bgColor) !important;
+    }
 }
 
 
