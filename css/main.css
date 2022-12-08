@@ -81,7 +81,10 @@ a {
         display: none;
     }
     .container section {
-        background-color: var(--bgColor) !important;
+        -webkit-print-color-adjust: exact; 
+        -moz-print-color-adjust: exact; 
+        -ms-print-color-adjust: exact; 
+        color-adjust: exact; 
     }
 }
 
