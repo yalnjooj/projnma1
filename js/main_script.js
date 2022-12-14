@@ -54,19 +54,36 @@ editBut.onclick = function(e) {
     clientSinceDateInputAR.value = clientSinceDateFeldAR.textContent.trim();
     recordsDateInputEN.value = recordsDateFeldEN.textContent.trim();
     recordsDateInputAR.value = recordsDateFeldAR.textContent.trim();
-    monyInputBefor.value = monyFeldBefor.textContent.trim();
+    // monyInputBefor.value = monyFeldBefor.textContent.trim();
     monyInputAfter.value = monyFeldAfter.textContent.trim();
     equalInput.value = equalFeld.textContent.trim();
     
 }
+let day = rundomNum(1, 1, 30);
+let monthe = rundomNum(1, 1, 12);
+clientSinceDateFeldEN.textContent = `${day > 9? day : "0"+day}/${monthe > 9? monthe : "0"+monthe}/20${rundomNum(1, 16, 21)}`;
+
+recordsDateFeldEN.textContent = `${new Date().getDate()}/${(new Date().getMonth() + 1)}/${new Date().getFullYear()}`;
 
 issuDateFeld.textContent = `${new Date().getDate()}/${(new Date().getMonth() + 1)}/${new Date().getFullYear()}`;
-refFeld.textContent = `090030${rundomNum()}${rundomChar()}${rundomChar()}` ;
-accountFeldNum.textContent = `6820168${rundomNum()}000`
+refFeld.textContent = `090030${rundomNum(4, 0, 9)}${rundomChar()}${rundomChar()}` ;
+accountFeldNum.textContent = `6820168${rundomNum(4, 0, 9)}000`;
 
-function rundomNum() {
-    return Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)
+let equals = `${rundomNum(1, 80, 120)},${rundomNum(1, 1, 9)}${rundomNum(2, 0, 9)}.${rundomNum(2, 0, 9)}`;
+monyFeldBefor.textContent = equals;
+equalFeld.textContent = equals;
+
+
+function rundomNum(ittrate, from, to) {
+    let newnum = [];
+    
+
+    for (let index = 0; index < ittrate; index++) {
+        newnum.push((Math.floor(Math.random() * (to - from + 1)) + from))
+    }
+    return +newnum.join("");
 }
+
 function rundomChar() {
     let char = "";
     switch (Math.floor(Math.random()*6)) {
@@ -106,7 +123,7 @@ function rundomChar() {
     clientSinceDateFeldAR.textContent = clientSinceDateInputAR.value.trim();
     recordsDateFeldEN.textContent = recordsDateInputEN.value.trim();
     recordsDateFeldAR.textContent = recordsDateInputAR.value.trim();
-    monyFeldBefor.textContent = monyInputBefor.value.trim();
+    monyFeldBefor.textContent = equalInput.value.trim();
     monyFeldAfter.textContent = monyInputAfter.value.trim();
     equalFeld.textContent = equalInput.value.trim();
 
